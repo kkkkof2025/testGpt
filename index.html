@@ -230,6 +230,75 @@
     </section>
 
     <section class="section">
+      <h2>三种搭建路径</h2>
+      <p class="subtitle" style="margin-bottom: 1rem">根据你的目标选择一种方案，按步骤完成即可：静态介绍页、离线工具集、或前后端分离的前端演示。</p>
+      <div class="grid">
+        <div class="card">
+          <strong>方案 A：静态展示页（最简单）</strong>
+          <ul>
+            <li>保持或微调本页内容，补充你的案例介绍。</li>
+            <li>推送到 GitHub，启用 GitHub Pages 指向 <code>/</code> 目录。</li>
+            <li>在 issue 或 README 中补充使用须知，即可作为展示站点。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>方案 B：单独工具集</strong>
+          <ul>
+            <li>在 <code>scripts/</code> 中新增 CLI/自动化脚本，确保可独立运行。</li>
+            <li>在 <code>examples/</code> 放入输入/输出示例，写明依赖与运行命令。</li>
+            <li>将使用步骤写入 <code>readme</code>，并为关键脚本添加简单单元测试。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>方案 C：前后端分离前端</strong>
+          <ul>
+            <li>选择框架（如 Vite/Next.js），在 <code>frontend/</code> 创建项目。</li>
+            <li>将调用 GPT 的接口抽象为 <code>services/api.ts</code>（或同等目录）。</li>
+            <li>在 README 中标明如何启动前端及后端 Mock/真实服务。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>一步步搭建（通用流程）</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>准备环境</strong>
+          <ul>
+            <li>安装 Node.js 18+、Git（工具集可附加 Python/Go 等运行时）。</li>
+            <li>准备 GPT5.2 API Key 或兼容的本地推理服务。</li>
+            <li>执行 <code>git init && git remote add origin ...</code> 以便版本管理。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>生成与整理代码</strong>
+          <ul>
+            <li>在 <code>examples/</code> 添加你的 prompt，调用 GPT 生成初始代码。</li>
+            <li>将生成文件放入合适目录（<code>scripts/</code>、<code>frontend/</code> 等）。</li>
+            <li>为关键逻辑撰写注释与基本测试，方便后续迭代。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>本地验证</strong>
+          <ul>
+            <li>静态页：用浏览器打开 <code>index.html</code> 或使用 <code>npx serve</code> 预览。</li>
+            <li>工具集：执行 <code>npm test</code> 或语言对应的测试命令。</li>
+            <li>前端：运行 <code>npm install</code>、<code>npm run dev</code>，确认接口可用。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>上线与维护</strong>
+          <ul>
+            <li>推送到 GitHub，配置 Pages 或部署到 Vercel/Netlify。</li>
+            <li>为工具集发布版本标签，写明变更日志与升级提示。</li>
+            <li>持续补充示例与文档，记录「输入 prompt → 生成结果 → 测试结论」。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>后续计划</h2>
       <p>将逐步补充完整示例、测试与 CI 流程，帮助你快速把 GPT 生成的原型打造成生产可用的项目。欢迎在此基础上继续扩展，打造一个真正“非常强大”的 GPT5.2 代码编写案例！</p>
     </section>
