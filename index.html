@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GPT5.2 代码编写案例仓库</title>
+  <title>GPT5.2 × Codex 在线协作开发模板</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -53,7 +53,7 @@
     }
 
     .subtitle {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0;
       color: var(--muted);
       font-size: 1.05rem;
@@ -121,189 +121,180 @@
     .card {
       background: var(--card);
       border-radius: 0.9rem;
+      padding: 1.1rem 1rem;
       border: 1px solid var(--border);
-      padding: 1rem;
       display: grid;
-      gap: 0.5rem;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+      gap: 0.55rem;
+      color: var(--text);
     }
 
     ul {
-      margin: 0.3rem 0 0 1rem;
+      margin: 0;
+      padding-left: 1.1rem;
       color: var(--muted);
-      padding-left: 1rem;
     }
 
     li + li {
       margin-top: 0.35rem;
     }
 
-    .footer {
-      padding: 2rem 1.5rem 2.5rem;
-      text-align: center;
-      color: var(--muted);
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.12rem 0.3rem;
+      border-radius: 0.35rem;
       font-size: 0.95rem;
+      color: #c8e8ff;
     }
 
-    @media (max-width: 640px) {
-      header {
-        padding: 2rem 1.5rem;
-      }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 1rem 0 2rem;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <span class="badge">⚡ GPT5.2 代码编写案例</span>
-    <h1>快速展示、复现、学习 GPT 生成代码的最佳实践</h1>
-    <p class="subtitle">
-      本仓库面向想要体验或展示 GPT5.2 代码编写流程的同学，提供开箱即用的示例、目录结构与操作引导，便于直接部署到 GitHub Pages。
-    </p>
+    <span class="badge">GPT5.2 · Codex · GitHub 云端协作</span>
+    <h1>零本地环境的在线开发模板</h1>
+    <p class="subtitle">演示如何使用 GPT5.2（Codex）直接连接 GitHub，完成在线编辑、测试、提交 PR 与 GitHub Pages 发布的全链路流程。适合受限设备、远程团队或临时需求。</p>
     <div class="cta">
-      <a class="button primary" href="#quickstart">立即上手</a>
-      <a class="button" href="https://github.com/" target="_blank" rel="noreferrer">查看仓库</a>
+      <a class="button primary" href="https://github.com" target="_blank" rel="noreferrer">连接 GitHub 并授权</a>
+      <a class="button" href="readme" target="_blank" rel="noreferrer">查看文字版工作流</a>
     </div>
   </header>
 
   <main>
     <section class="section">
-      <h2>核心亮点</h2>
+      <h2>为什么选择在线协作？</h2>
       <div class="grid">
         <div class="card">
-          <strong>展示友好</strong>
-          <p>页面直接引用仓库说明，适合在 GitHub Pages 上快速发布，方便讲解或演示。</p>
+          <strong>零配置上手</strong>
+          <p class="subtitle">无需本地 IDE，直接在浏览器或轻量终端完成修改、预览与提交。</p>
         </div>
         <div class="card">
-          <strong>可复现流程</strong>
-          <p>按照仓库描述的步骤准备 GPT5.2 环境，即可生成和优化示例代码。</p>
+          <strong>分支与审阅友好</strong>
+          <p class="subtitle">以 PR 为中心的流转：小步提交、自动检查、便捷回溯。</p>
         </div>
         <div class="card">
-          <strong>轻量扩展</strong>
-          <p>按照结构添加 <code>examples/</code> 与 <code>scripts/</code>，即可沉淀更多场景案例与自动化工具。</p>
+          <strong>自动化驱动</strong>
+          <p class="subtitle">结合 Actions / CI 工具，在云端跑测试、构建与部署，无需本地环境。</p>
         </div>
       </div>
     </section>
 
-    <section id="quickstart" class="section">
-      <h2>快速开始</h2>
+    <section class="section">
+      <h2>快速开始（Codex × GitHub）</h2>
       <div class="grid">
         <div class="card">
-          <strong>1. 克隆仓库</strong>
+          <strong>1. 绑定与拉取</strong>
           <ul>
-            <li><code>git clone &lt;repo-url&gt;</code></li>
-            <li><code>cd testGpt</code></li>
+            <li>在 Codex 授权 GitHub 访问权限。</li>
+            <li>选择目标仓库并切换到新的工作分支（如 <code>feature/online-edit</code>）。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>2. 准备 GPT5.2</strong>
+          <strong>2. 在线编辑</strong>
           <ul>
-            <li>配置 API 访问方式（环境变量或配置文件）。</li>
-            <li>确认可调用生成示例的脚本。</li>
+            <li>通过对话让 Codex 修改文件、生成补丁并查看 diff。</li>
+            <li>将修改随时保存为提交，保持一次对话一次提交。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>3. 运行示例</strong>
+          <strong>3. 验证与发布</strong>
           <ul>
-            <li>在 <code>examples/</code> 中添加输入提示（prompt）。</li>
-            <li>通过 <code>scripts/</code> 内脚本生成代码并测试。</li>
+            <li>触发远程测试（Actions、Codespaces 或其他 CI）。</li>
+            <li>创建 PR，附上测试输出、预览链接或截图，等待评审合并。</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>项目结构</h2>
+      <h2>示例操作</h2>
       <div class="grid">
         <div class="card">
-          <strong>说明文档</strong>
-          <p><code>readme</code> 概述仓库目标、使用建议和后续计划，是最初的参考入口。</p>
-        </div>
-        <div class="card">
-          <strong>示例与脚本</strong>
-          <p>可新增 <code>examples/</code> 与 <code>scripts/</code> 目录，逐步沉淀案例、测试与自动化工具。</p>
-        </div>
-        <div class="card">
-          <strong>最佳实践</strong>
-          <p>鼓励频繁保存版本、对比变更，并为生成的代码补充单元测试与静态检查。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>三种搭建路径</h2>
-      <p class="subtitle" style="margin-bottom: 1rem">根据你的目标选择一种方案，按步骤完成即可：静态介绍页、离线工具集、或前后端分离的前端演示。</p>
-      <div class="grid">
-        <div class="card">
-          <strong>方案 A：静态展示页（最简单）</strong>
+          <strong>示例 A：文档在线改写</strong>
           <ul>
-            <li>保持或微调本页内容，补充你的案例介绍。</li>
-            <li>推送到 GitHub，启用 GitHub Pages 指向 <code>/</code> 目录。</li>
-            <li>在 issue 或 README 中补充使用须知，即可作为展示站点。</li>
+            <li>对话描述想要的章节结构，Codex 重写 <code>readme</code>。</li>
+            <li>查看 diff、生成提交信息，推送到远程分支。</li>
+            <li>在 PR 中说明修改目的和阅读指南。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>方案 B：单独工具集</strong>
+          <strong>示例 B：修复缺陷并跑测试</strong>
           <ul>
-            <li>在 <code>scripts/</code> 中新增 CLI/自动化脚本，确保可独立运行。</li>
-            <li>在 <code>examples/</code> 放入输入/输出示例，写明依赖与运行命令。</li>
-            <li>将使用步骤写入 <code>readme</code>，并为关键脚本添加简单单元测试。</li>
+            <li>定位 bug 代码，让 Codex 生成修复补丁并应用。</li>
+            <li>在云端执行 <code>npm test</code> 或对应命令，将日志附到 PR。</li>
+            <li>通过代码审阅后合并，自动部署到 Pages 或环境。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>方案 C：前后端分离前端</strong>
+          <strong>示例 C：更新 GitHub Pages</strong>
           <ul>
-            <li>选择框架（如 Vite/Next.js），在 <code>frontend/</code> 创建项目。</li>
-            <li>将调用 GPT 的接口抽象为 <code>services/api.ts</code>（或同等目录）。</li>
-            <li>在 README 中标明如何启动前端及后端 Mock/真实服务。</li>
+            <li>在对话中指定要调整的模块（如本页文案/样式）。</li>
+            <li>提交并推送，等待 Pages 构建完成后验证线上效果。</li>
+            <li>在 PR 留下预览链接或截图，方便 Reviewer 审阅。</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>一步步搭建（通用流程）</h2>
+      <h2>工作流清单</h2>
       <div class="grid">
         <div class="card">
-          <strong>准备环境</strong>
+          <strong>前置</strong>
           <ul>
-            <li>安装 Node.js 18+、Git（工具集可附加 Python/Go 等运行时）。</li>
-            <li>准备 GPT5.2 API Key 或兼容的本地推理服务。</li>
-            <li>执行 <code>git init && git remote add origin ...</code> 以便版本管理。</li>
+            <li>仓库已在 GitHub，必要的分支保护规则生效。</li>
+            <li>Codex 已获得 Git 权限，可读取/推送分支。</li>
+            <li>（可选）配置 Actions/CI 以支持自动测试与 Pages 部署。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>生成与整理代码</strong>
+          <strong>执行</strong>
           <ul>
-            <li>在 <code>examples/</code> 添加你的 prompt，调用 GPT 生成初始代码。</li>
-            <li>将生成文件放入合适目录（<code>scripts/</code>、<code>frontend/</code> 等）。</li>
-            <li>为关键逻辑撰写注释与基本测试，方便后续迭代。</li>
+            <li>通过对话驱动：描述需求 → 生成补丁 → 检查 diff。</li>
+            <li>小步提交：每次修改后生成清晰的 commit 信息。</li>
+            <li>必要时在远程环境运行测试或生成预览。</li>
           </ul>
         </div>
         <div class="card">
-          <strong>本地验证</strong>
+          <strong>收尾</strong>
           <ul>
-            <li>静态页：用浏览器打开 <code>index.html</code> 或使用 <code>npx serve</code> 预览。</li>
-            <li>工具集：执行 <code>npm test</code> 或语言对应的测试命令。</li>
-            <li>前端：运行 <code>npm install</code>、<code>npm run dev</code>，确认接口可用。</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>上线与维护</strong>
-          <ul>
-            <li>推送到 GitHub，配置 Pages 或部署到 Vercel/Netlify。</li>
-            <li>为工具集发布版本标签，写明变更日志与升级提示。</li>
-            <li>持续补充示例与文档，记录「输入 prompt → 生成结果 → 测试结论」。</li>
+            <li>创建 PR，填写变更摘要与测试结果。</li>
+            <li>审阅通过后合并，并更新发布日志/标签。</li>
+            <li>持续在 <code>examples/</code> 积累 Prompt 与结果，方便复用。</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>后续计划</h2>
-      <p>将逐步补充完整示例、测试与 CI 流程，帮助你快速把 GPT 生成的原型打造成生产可用的项目。欢迎在此基础上继续扩展，打造一个真正“非常强大”的 GPT5.2 代码编写案例！</p>
+      <h2>适用角色</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>快速原型</strong>
+          <p class="subtitle">产品/设计师可直接让 Codex 生成原型页面并推送到 Pages。</p>
+        </div>
+        <div class="card">
+          <strong>团队协作</strong>
+          <p class="subtitle">开发与测试在同一 PR 下留下对话记录、日志与截图，降低沟通成本。</p>
+        </div>
+        <div class="card">
+          <strong>培训与演示</strong>
+          <p class="subtitle">用最少准备展示「对话 → 修改 → 部署」的全流程，适合内部培训。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>下一步计划</h2>
+      <p>将继续补充更多在线协作示例、CI/CD 配置模板和质量检查脚本，让 GPT5.2（Codex）在远程场景下更稳健地支撑生产级工作流。</p>
     </section>
   </main>
 
-  <div class="footer">Made with ❤️ for GPT5.2 code demos · 适配 GitHub Pages 一键发布</div>
+  <div class="footer">Made with ❤️ for GPT5.2 在线协作 · GitHub Pages 即推即用</div>
 </body>
 </html>
